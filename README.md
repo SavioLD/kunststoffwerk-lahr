@@ -62,20 +62,34 @@ Neue Übersetzung ergänzen:
 
 ## Farben
 
-| Rolle | Wert |
-|---|---|
-| Bernauer Group | `#a01c24` |
-| Kunststoffwerk Lahr | `#1f52a0` |
-| Textilwerke Todtnau / BERATEX® | `#b01f24` |
-| TEXPAK | `#0f766e` |
+Die Palette ist an den Logos der bestehenden Auftritte ausgerichtet.
+
+| Rolle | Farbton | Wert |
+|---|---|---|
+| Bernauer Group | Rot des Schriftzugs BERNAUER | `#9e1b22` |
+| Kunststoffwerk Lahr | Navy/Stahlblau | `#2b4c8c` |
+| Textilwerke Todtnau / BERATEX® | Ziegelrot | `#9b1c1f` |
+| TEXPAK | Anthrazit (schwarzes Logo) | `#2f3439` |
+
+Dunkle Flächen (Kopfleiste, Hero, CTA) nutzen `--ink: #1c2837`, ein
+Schieferblau in Anlehnung an die dunkle Kopfleiste der alten Seiten.
 
 Jede Sparten­seite setzt ihre Leitfarbe über eine Zeile im `<head>`:
 
 ```html
-<style>:root { --brand: var(--kwl); --brand-dark: #17407d; }</style>
+<style>:root { --brand: var(--kwl); --brand-dark: var(--kwl-dark); }</style>
 ```
 
 Alle Akzente (Buttons, Eyebrows, Icons, Kennzahlen) folgen automatisch.
+
+Zusätzlich gibt es `--brand-light` für Elemente auf dunklem Grund. Sie
+entspricht standardmäßig `--brand`; nur TEXPAK weicht ab, weil reines
+Anthrazit auf der dunklen Hero- und CTA-Fläche nicht mehr zu erkennen wäre:
+
+```html
+<style>:root { --brand: var(--texpak); --brand-dark: var(--texpak-dark);
+               --brand-light: #4f5862; }</style>
+```
 
 ## Grafiken
 
