@@ -21,10 +21,9 @@
       </a>
 
       <nav class="switch" aria-label="Unternehmen der Gruppe">
-        <span class="switch__label" data-en="Our companies">Unsere Unternehmen</span>
-        <a href="kunststoffwerk-lahr.html" data-brand="kwl">Kunststoffwerk Lahr<small data-en="Blown films">Blasfolien</small></a>
-        <a href="beratex.html" data-brand="beratex" class="is-active" aria-current="page">Textilwerke Todtnau<small data-en="BERATEX® fabrics">BERATEX® Gewebe</small></a>
-        <a href="texpak.html" data-brand="texpak">TEXPAK<small data-en="EVA films &amp; bags">EVA-Folien &amp; -Beutel</small></a>
+                <a href="kunststoffwerk-lahr.html" data-brand="kwl">Kunststoffwerk Lahr</a>
+        <a href="beratex.html" data-brand="beratex" class="is-active" aria-current="page">Textilwerke Todtnau</a>
+        <a href="texpak.html" data-brand="texpak">TEXPAK</a>
       </nav>
 
       <div class="langswitch" role="group" aria-label="Sprache / Language">
@@ -54,6 +53,7 @@
       <a href="#company" data-en="Company">Unternehmen</a>
       <a href="#product" data-en="Product">Produkt</a>
       <a href="#data" data-en="Technical data">Technische Daten</a>
+      <a href="#team" data-en="Contacts">Ansprechpartner</a>
       <a href="index.html">Bernauer Gruppe</a>
       <a class="btn btn--primary nav-cta" href="#contact" data-en-html="Request a quote <span class=&quot;arrow&quot;>→</span>">Anfrage stellen <span class="arrow">→</span></a>
     </nav>
@@ -90,6 +90,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Bildband: hier die Motive der Sparte einsetzen -->
+  <div class="strip">
+    <div class="imgph" role="img" aria-label="Platzhalter: Kettbaum / Webstuhl"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Kettbaum / Webstuhl</b><small>2400 × 1000 px</small></span></div>
+    <div class="imgph" role="img" aria-label="Platzhalter: Flachgarn im Webfach"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Flachgarn im Webfach</b><small>2400 × 1000 px</small></span></div>
+    <div class="imgph" role="img" aria-label="Platzhalter: BERATEX®-Rollen"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>BERATEX®-Rollen</b><small>2400 × 1000 px</small></span></div>
+  </div>
 
   <!-- ══ UNTERNEHMEN ═══════════════════════════════════════════════ -->
   <section class="section" id="company">
@@ -308,10 +315,11 @@
             Nennen Sie uns Artikelnummer, Breite und Menge – oder beschreiben Sie
             Ihren Kalanderprozess, und wir empfehlen Ihnen einen passenden Artikel.
           </p>
-        </div>
-        <div>
-          <div class="contact-card">
-            <h3>Textilwerke Todtnau Bernauer KG</h3>
+          <div class="contact-card" style="margin-top:1.8rem">
+            <h3>Textilwerke Todtnau Bernauer GmbH &amp; Co. KG</h3>
+            <p style="color:var(--slate-600);font-size:.94rem;margin:0">
+              Meinrad-Thoma-Straße 14 · 79674 Todtnau
+            </p>
             <ul class="contact-list">
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5c0 8 7 15 15 15l2-3-4-2-2 2a13 13 0 01-6-6l2-2-2-4-3 2z"/></svg></span>
@@ -319,7 +327,7 @@
               </li>
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="6"/><rect x="4" y="9" width="16" height="8" rx="2"/><rect x="7" y="15" width="10" height="6"/></svg></span>
-                <span><span data-en="Fax">Fax</span> +49 7671 9117 40</span>
+                <span>Fax +49 7671 9117 40</span>
               </li>
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
@@ -328,6 +336,217 @@
             </ul>
           </div>
         </div>
+
+        <form class="form" data-subject="Anfrage BERATEX® – Textilwerke Todtnau"
+              data-to="info@beratex.com" novalidate>
+          <div class="form__grid">
+            <p class="form__legend" data-en="Your details">Ihre Angaben</p>
+
+            <div class="field">
+              <label class="req" for="b-company" data-en="Company">Firma</label>
+              <input id="b-company" name="Firma" type="text" autocomplete="organization" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label class="req" for="b-name" data-en="Contact person">Ansprechpartner</label>
+              <input id="b-name" name="Ansprechpartner" type="text" autocomplete="name" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label class="req" for="b-mail" data-en="Email">E-Mail</label>
+              <input id="b-mail" name="E-Mail" type="email" autocomplete="email" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label for="b-phone" data-en="Phone">Telefon</label>
+              <input id="b-phone" name="Telefon" type="tel" autocomplete="tel">
+            </div>
+            <div class="field field--wide">
+              <label for="b-country" data-en="Country">Land</label>
+              <input id="b-country" name="Land" type="text" autocomplete="country-name">
+              <p class="field__hint" data-en="We also serve Canada and India through our overseas offices.">Kanada und Indien betreuen wir über unsere Vertriebsbüros.</p>
+            </div>
+
+            <p class="form__legend" data-en="Fabric specification">Gewebespezifikation</p>
+
+            <div class="field">
+              <label for="b-article" data-en="Article no.">Artikel-Nr.</label>
+              <select id="b-article" name="Artikel-Nr.">
+                <option value="" data-en="Not sure — please advise">Weiß ich nicht – bitte beraten</option>
+                <option>1087 · 130 g/m²</option>
+                <option>1078 · 145 g/m²</option>
+                <option>1078-C · 145 g/m² (calandert)</option>
+                <option>1079 · 190 g/m²</option>
+                <option>1080 · 250 g/m²</option>
+                <option>1080-C · 250 g/m² (calandert)</option>
+                <option>1088 · 400 g/m²</option>
+                <option>1088-C · 400 g/m² (calandert)</option>
+                <option>1081 · 550 g/m²</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b-width" data-en="Required width (mm)">Benötigte Breite (mm)</label>
+              <input id="b-width" name="Breite (mm)" type="text" inputmode="numeric"
+                     placeholder="max. 2450, Sonderbreite bis 3600"
+                     data-en-placeholder="max. 2450, special widths up to 3600">
+            </div>
+            <div class="field">
+              <label for="b-qty" data-en="Quantity">Menge</label>
+              <input id="b-qty" name="Menge" type="text"
+                     placeholder="z. B. 20 Rollen à 1.000 m" data-en-placeholder="e.g. 20 rolls of 1,000 m">
+            </div>
+            <div class="field">
+              <label for="b-colour" data-en="Colour">Farbe</label>
+              <select id="b-colour" name="Farbe">
+                <option data-en="Standard / none">Standard / keine</option>
+                <option data-en="Blue">Blau</option>
+                <option data-en="Yellow">Gelb</option>
+                <option data-en="Green">Grün</option>
+                <option data-en="Red">Rot</option>
+                <option data-en="Orange">Orange</option>
+                <option data-en="Black">Schwarz</option>
+              </select>
+            </div>
+            <div class="field field--wide">
+              <label for="b-use" data-en="Application">Anwendung</label>
+              <select id="b-use" name="Anwendung">
+                <option data-en="Fabric calender">Gewebe-Kalander</option>
+                <option data-en="Rubber calender">Gummi-Kalander</option>
+                <option data-en="Wire calender">Draht-Kalander</option>
+                <option data-en="Rubber cut parts">Gummi-Zuschnitte</option>
+                <option data-en="Rubber components">Gummi-Komponenten</option>
+                <option data-en="Other">Sonstiges</option>
+              </select>
+            </div>
+
+            <div class="field field--wide">
+              <label class="req" for="b-msg" data-en="Your message">Ihre Nachricht</label>
+              <textarea id="b-msg" name="Nachricht" required
+                        placeholder="Beschreiben Sie Ihren Kalanderprozess, die Lagerdauer und ob Sie eine eingewobene Farbkennzeichnung oder Beschichtung benötigen."
+                        data-en-placeholder="Describe your calender process, the storage time, and whether you need woven-in colour marking or a coating."></textarea>
+              <p class="field__err" data-err></p>
+            </div>
+
+            <div class="consent">
+              <input id="b-consent" name="Einwilligung" type="checkbox" required>
+              <label for="b-consent" data-en-html="I agree that my details may be used to process my enquiry. See the <a href=&quot;datenschutz.html&quot;>privacy policy</a>.">
+                Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung
+                meiner Anfrage verwendet werden. Siehe
+                <a href="datenschutz.html">Datenschutzerklärung</a>.
+              </label>
+              <p class="field__err" data-err></p>
+            </div>
+
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit" data-en-html="Send enquiry <span class=&quot;arrow&quot;>→</span>">Anfrage senden <span class="arrow">→</span></button>
+            <p class="form__note" data-en="We usually reply within one working day.">Wir antworten in der Regel innerhalb eines Werktags.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ANSPRECHPARTNER ═══════════════════════════════════════════ -->
+  <section class="section bg-paper" id="team">
+    <div class="container">
+      <div style="max-width:64ch;margin-bottom:2.2rem">
+        <span class="eyebrow" data-en="Your contacts">Ihre Ansprechpartner</span>
+        <h2 data-en="People, not a ticket number.">Menschen statt Ticketnummer.</h2>
+        <p data-en="Reach the right person directly — including the languages they speak.">Wenden Sie sich direkt an die richtige Person – die gesprochenen Sprachen finden Sie jeweils darunter.</p>
+      </div>
+
+      <div class="people">
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Hanspeter Bernauer</p>
+          <p class="person__role" data-en="Managing Director / CEO">Geschäftsführer / CEO</p>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+497671911712">+49 7671 9117 12</a></dd></div>
+            <div><dt>Fax</dt><dd>+49 7671 9117 40</dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:hanspeter.bernauer@beratex.com">hanspeter.bernauer@beratex.com</a></dd></div>
+          </dl>
+          <div class="langs"><span>DE</span></div>
+        </article>
+
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Alessandro Cangeri</p>
+          <p class="person__role" data-en="Managing Director">Geschäftsführer / Managing Director</p>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+497671911718">+49 7671 9117 18</a></dd></div>
+            <div><dt>Fax</dt><dd>+49 7671 9117 40</dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:alessandro.cangeri@beratex.com">alessandro.cangeri@beratex.com</a></dd></div>
+          </dl>
+          <div class="langs"><span>DE</span><span>EN</span><span>IT</span><span>ES</span></div>
+        </article>
+
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Claudia Catana</p>
+          <p class="person__role" data-en="Sales support / Logistics">Sachbearbeiterin / Logistik</p>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+497671911716">+49 7671 9117 16</a></dd></div>
+            <div><dt>Fax</dt><dd>+49 7671 9117 40</dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:claudia.catana@beratex.com">claudia.catana@beratex.com</a></dd></div>
+          </dl>
+          <div class="langs"><span>DE</span><span>EN</span><span>RO</span></div>
+        </article>
+
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Anette Steiger</p>
+          <p class="person__role" data-en="Sales support / Logistics">Sachbearbeiterin / Logistik</p>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+497671911713">+49 7671 9117 13</a></dd></div>
+            <div><dt>Fax</dt><dd>+49 7671 9117 40</dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:anette.steiger@beratex.com">anette.steiger@beratex.com</a></dd></div>
+          </dl>
+          <div class="langs"><span>DE</span><span>EN</span></div>
+        </article>
+      </div>
+
+      <!-- Vertriebsbüros -->
+      <div style="max-width:64ch;margin:3.4rem 0 2.2rem">
+        <span class="eyebrow" data-en="Overseas offices">Vertriebsbüros</span>
+        <h2 data-en="Represented worldwide.">Weltweit vertreten.</h2>
+      </div>
+
+      <div class="people">
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Jörg Hipp</p>
+          <p class="person__role" data-en="Overseas Office Beeton, Ontario / Canada">Vertriebsbüro Beeton, Ontario / Kanada</p>
+          <address class="person__addr">
+            P.O. Box 348<br>
+            Beeton, Ontario<br>
+            Canada L0G 1A0
+          </address>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+19057294388">+1 905 729 4388</a></dd></div>
+            <div><dt>Fax</dt><dd>+1 905 729 4397</dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:jhipp@beratex.ca">jhipp@beratex.ca</a></dd></div>
+          </dl>
+          <div class="langs"><span>DE</span><span>EN</span></div>
+        </article>
+
+        <article class="person">
+          <div class="imgph imgph--square" role="img" aria-label="Platzhalter: Porträt"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Porträt</b><small>600 × 600 px</small></span></div>
+          <p class="person__name" style="margin-top:1rem">Rajesh Rao</p>
+          <p class="person__role" data-en="Overseas Office India">Vertriebsbüro Indien</p>
+          <address class="person__addr">
+            No. 64, 5th „C“ Main, 2nd Block<br>
+            R T Nagar<br>
+            Bangalore – 560 032, India
+          </address>
+          <dl>
+            <div><dt data-en="Phone">Tel</dt><dd><a href="tel:+919886938802">+91 9886938802</a></dd></div>
+            <div><dt data-en="Email">Mail</dt><dd><a href="mailto:rajesh.rao@beratex.com">rajesh.rao@beratex.com</a></dd></div>
+          </dl>
+          <div class="langs"><span>EN</span></div>
+        </article>
       </div>
     </div>
   </section>
@@ -358,6 +577,7 @@
           <li><a href="#company" data-en="Company">Unternehmen</a></li>
           <li><a href="#product" data-en="Product">Produkt</a></li>
           <li><a href="#data" data-en="Technical data">Technische Daten</a></li>
+          <li><a href="#team" data-en="Contacts">Ansprechpartner</a></li>
         </ul>
       </div>
       <div>
@@ -371,7 +591,7 @@
     <div class="footer__bottom">
       <span>© Bernauer Group · Textilwerke Todtnau Bernauer KG</span>
       <nav>
-        <a href="#" data-en="Imprint">Impressum</a><a href="#" data-en="Terms &amp; Conditions">AGB</a><a href="#" data-en="Privacy Policy">Datenschutzerklärung</a><a href="#">GTCT</a>
+        <a href="impressum.html" data-en="Imprint">Impressum</a><a href="agb.html" data-en="Terms &amp; Conditions">AGB</a><a href="datenschutz.html" data-en="Privacy Policy">Datenschutzerklärung</a>
       </nav>
     </div>
   </div>

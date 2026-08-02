@@ -21,21 +21,69 @@ Die Gruppenübersicht liegt auf `index.html`.
 .
 ├── index.html                 Konzern-Startseite (Struktur, Historie, Weiche)
 ├── kunststoffwerk-lahr.html   Anker-Unternehmen
-├── beratex.html               Muttergesellschaft, inkl. technischer Daten
+├── beratex.html               Muttergesellschaft, technische Daten, Ansprechpartner
 ├── texpak.html                EVA-Folien und -Beutel
+├── impressum.html             Impressum (Registerdaten, Urheberrecht)
+├── agb.html                   Einheitsbedingungen der deutschen Textilwirtschaft
+├── datenschutz.html           Datenschutzerklärung (Stand August 2019)
 ├── assets/
 │   ├── styles.css             Design-System (Tokens, Komponenten, Responsive)
-│   └── app.js                 Sprachumschaltung, Mobil-Navigation, Reveal
+│   └── app.js                 Sprachumschaltung, Formular, Mobil-Navigation
 └── README.md
 ```
+
+## Kontaktformular
+
+Jede der vier Unternehmensseiten hat ein eigenes Formular mit fachspezifischen
+Feldern:
+
+| Seite | Fachfelder |
+|---|---|
+| Gruppe | Zuständiges Unternehmen, Art der Anfrage, Branche |
+| Kunststoffwerk Lahr | Werkstoff, Aufbau, Foliendicke (µm), Breite (mm), Format, Jahresmenge, Einsatzbereich |
+| BERATEX® | Artikel-Nr., Breite (mm), Menge, Farbe, Anwendung (Kalander) |
+| TEXPAK | Produkt, DSC-Schmelzpunkt, Mischtemperatur, Füllmenge, Chargengröße, Branche |
+
+Pflichtfelder sind Firma, Ansprechpartner, E-Mail, Nachricht und die
+Einwilligung. Die Prüfung läuft im Browser und meldet Fehler je Feld.
+
+**Versand:** Die Seite ist statisch, es gibt also keine Gegenstelle für ein
+POST. Bis ein Endpunkt bereitsteht, stellt das Formular eine strukturierte
+E-Mail zusammen und übergibt sie an das Mailprogramm. Zum Umstellen genügt ein
+Attribut am `<form>`:
+
+```html
+<form class="form" data-endpoint="https://api.example.com/anfrage" …>
+```
+
+Dann wird per `fetch()` als JSON gesendet und die Rückmeldung im Formular
+angezeigt. Der Empfänger lässt sich über `data-to`, der Betreff über
+`data-subject` setzen.
+
+## Bild-Platzhalter
+
+Wo Fotos hingehören, steht ein beschrifteter Platzhalter mit Formatangabe.
+Unter der Kopfzeile liegt je Sparte ein dreiteiliges Bildband, auf der
+BERATEX-Seite zusätzlich Porträtfelder bei den Ansprechpartnern.
+
+Zum Ersetzen den Platzhalter durch ein Bild tauschen:
+
+```html
+<!-- vorher -->
+<div class="imgph" role="img" aria-label="Platzhalter: Blasfolienanlage">…</div>
+<!-- nachher -->
+<img src="assets/img/blasfolienanlage.jpg" alt="Blasfolienanlage im Kunststoffwerk Lahr">
+```
+
+Varianten: `.imgph--wide` (16:9), `.imgph--square` (1:1), `.imgph--tall` (3:4).
 
 ## Navigation / Konzern-Weiche
 
 Die Zugehörigkeit zur Gruppe ist auf jeder Seite an drei Stellen sichtbar:
 
-1. **Kopfzeile, Zeile 1** — dunkles Konzernband mit Bernauer-Marke und der
-   Weiche über alle drei Sparten. Die aktive Sparte ist weiß hinterlegt und
-   trägt oben ihre Sparten-Farbe.
+1. **Kopfzeile, Zeile 1** — schmales dunkles Konzernband: Bernauer-Marke,
+   die drei Firmennamen als Weiche, Sprachwahl. Die aktive Sparte ist weiß
+   hinterlegt und trägt oben ihre Sparten-Farbe.
 2. **Kopfzeile, Zeile 2** — Navigation der jeweiligen Sparte.
 3. **Abschnitt „Teil eines größeren Ganzen"** — Querverweis auf die beiden
    Schwester­unternehmen am Seitenende.
@@ -99,19 +147,33 @@ keine externen Requests; Beschriftungen werden mit übersetzt.
 
 ## Getestet
 
-- Struktur aller vier Seiten geprüft (Verschachtelung, keine offenen Tags)
+- Struktur aller sieben Seiten geprüft (Verschachtelung, keine offenen Tags)
 - Keine toten Links, Anker oder Asset-Pfade
+- Keine doppelten IDs, jedes `<label for>` trifft ein Feld
 - Kein waagerechtes Überlaufen bei 360 / 390 / 480 / 768 / 900 / 1024 / 1100 /
   1200 / 1280 / 1440 / 1920 px
 - DE↔EN inklusive Rückweg auf allen Seiten, Wahl bleibt beim Seitenwechsel
 - Klebende Kopfzeile, mobile Schublade, Sprungziele unterhalb der Kopfzeile
+- Formularprüfung: leeres Formular meldet 5 Pflichtfelder, ungültige E-Mail
+  wird erkannt, Fehler verschwinden beim Korrigieren
 - Keine JavaScript-Fehler
 
 ## Inhalte
 
-Firmengeschichte, Produktbeschreibungen sowie die technischen Daten und die
-Artikel­tabelle zu BERATEX® stammen aus den bestehenden Auftritten der Gruppe.
-Als Kontakt ist durchgehend der zentrale Anschluss der Gruppe hinterlegt
-(`+49 7671 9117 0`, `info@beratex.com`); für Lahr und TEXPAK lagen keine
-eigenen Durchwahlen vor. Impressum, AGB und Datenschutz sind als Platzhalter
-verlinkt und noch zu hinterlegen.
+Firmengeschichte, Produktbeschreibungen, die technischen Daten und die
+Artikel­tabelle zu BERATEX®, die Ansprechpartner samt Durchwahlen und
+Sprachkenntnissen, die Vertriebsbüros in Kanada und Indien sowie Impressum,
+AGB und Datenschutzerklärung stammen aus den bestehenden Auftritten der
+Gruppe.
+
+Offen bzw. zu beachten:
+
+- Für Kunststoffwerk Lahr und TEXPAK lagen keine eigenen Durchwahlen vor;
+  dort ist der zentrale Anschluss der Gruppe hinterlegt und als solcher
+  ausgewiesen.
+- AGB und Datenschutzerklärung liegen nur auf Deutsch vor. Die englischen
+  Fassungen (GTCT, Privacy Policy) sind auf beiden Seiten als „auf Anfrage“
+  ausgewiesen und müssen noch hinterlegt werden. Bindende Rechtstexte wurden
+  bewusst nicht maschinell übersetzt.
+- Die Datenschutzerklärung verweist auf eine Anlage zu spezifischen
+  Online-Funktionalitäten, die im Ausgangsmaterial nicht enthalten war.

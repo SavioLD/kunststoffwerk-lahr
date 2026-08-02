@@ -57,6 +57,16 @@
       if (isHtml) { el.innerHTML = value; } else { el.textContent = value; }
     });
 
+    /* Platzhalter in Formularfeldern */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-en-placeholder]'), function (el) {
+      if (!el.hasAttribute('data-de-placeholder')) {
+        el.setAttribute('data-de-placeholder', el.getAttribute('placeholder') || '');
+      }
+      el.setAttribute('placeholder', lang === 'en'
+        ? el.getAttribute('data-en-placeholder')
+        : el.getAttribute('data-de-placeholder'));
+    });
+
     /* Titel und Meta-Beschreibung */
     var title = document.querySelector('title');
     if (title && title.getAttribute('data-en')) {
@@ -86,6 +96,117 @@
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.langswitch button');
     if (btn) applyLang(btn.dataset.lang);
+  });
+
+  /* -----------------------------------------------------------------
+     Kontaktformular
+
+     Die Seite ist rein statisch, es gibt also keine Gegenstelle, die ein
+     POST entgegennehmen koennte. Bis ein Endpunkt bereitsteht, stellt das
+     Formular aus den Feldern eine strukturierte E-Mail zusammen und
+     uebergibt sie an das Mailprogramm.
+
+     Zum Umstellen auf einen echten Endpunkt genuegt es, am <form> ein
+     data-endpoint="https://..." zu setzen; dann wird per fetch() gesendet.
+     ----------------------------------------------------------------- */
+  function t(de, en) { return document.documentElement.lang === 'en' ? en : de; }
+
+  Array.prototype.forEach.call(document.querySelectorAll('form.form'), function (form) {
+    var status = form.querySelector('.form__status');
+
+    function setError(field, message) {
+      var wrap = field.closest('.field') || field.closest('.consent');
+      if (!wrap) return;
+      wrap.classList.toggle('is-invalid', Boolean(message));
+      var slot = wrap.querySelector('[data-err]');
+      if (slot) slot.textContent = message || '';
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    }
+
+    function validate() {
+      var firstBad = null;
+      Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (f) {
+        var empty = f.type === 'checkbox' ? !f.checked : !f.value.trim();
+        var badMail = f.type === 'email' && f.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.value.trim());
+        var msg = '';
+        if (empty) msg = t('Bitte ausfüllen.', 'Please complete this field.');
+        else if (badMail) msg = t('Bitte eine gültige E-Mail-Adresse angeben.', 'Please enter a valid email address.');
+        setError(f, msg);
+        if (msg && !firstBad) firstBad = f;
+      });
+      return firstBad;
+    }
+
+    /* Fehler ausblenden, sobald korrigiert wird */
+    form.addEventListener('input', function (e) {
+      var f = e.target;
+      if (f.hasAttribute('required')) {
+        var filled = f.type === 'checkbox' ? f.checked : f.value.trim();
+        if (filled) setError(f, '');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (status) status.className = 'form__status';
+
+      var bad = validate();
+      if (bad) {
+        if (status) {
+          status.className = 'form__status is-err';
+          status.textContent = t('Bitte prüfen Sie die markierten Felder.',
+                                 'Please check the highlighted fields.');
+        }
+        bad.focus();
+        bad.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        return;
+      }
+
+      /* Felder einsammeln (Einwilligung gehoert nicht in die Nachricht) */
+      var lines = [];
+      Array.prototype.forEach.call(form.elements, function (f) {
+        if (!f.name || f.type === 'checkbox' || f.type === 'submit') return;
+        var v = (f.value || '').trim();
+        if (v) lines.push(f.name + ': ' + v);
+      });
+
+      var endpoint = form.getAttribute('data-endpoint');
+      var subject = form.getAttribute('data-subject') || 'Anfrage';
+      var to = form.getAttribute('data-to') || 'info@beratex.com';
+
+      if (endpoint) {
+        var data = {};
+        Array.prototype.forEach.call(form.elements, function (f) {
+          if (f.name) data[f.name] = f.type === 'checkbox' ? f.checked : f.value;
+        });
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          form.reset();
+          status.className = 'form__status is-ok';
+          status.textContent = t('Vielen Dank. Ihre Anfrage ist bei uns eingegangen.',
+                                 'Thank you. We have received your enquiry.');
+        }).catch(function () {
+          status.className = 'form__status is-err';
+          status.textContent = t('Das Senden hat nicht geklappt. Bitte schreiben Sie uns an info@beratex.com.',
+                                 'Sending failed. Please email us at info@beratex.com.');
+        });
+        return;
+      }
+
+      window.location.href = 'mailto:' + to
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(lines.join('\n'));
+
+      if (status) {
+        status.className = 'form__status is-ok';
+        status.textContent = t('Ihre Anfrage wurde in Ihrem E-Mail-Programm geöffnet. Bitte dort noch absenden.',
+                               'Your enquiry has been opened in your email client. Please send it from there.');
+      }
+    });
   });
 
   /* Reveal-on-scroll (progressive enhancement, respects reduced motion) */

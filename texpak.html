@@ -21,10 +21,9 @@
       </a>
 
       <nav class="switch" aria-label="Unternehmen der Gruppe">
-        <span class="switch__label" data-en="Our companies">Unsere Unternehmen</span>
-        <a href="kunststoffwerk-lahr.html" data-brand="kwl">Kunststoffwerk Lahr<small data-en="Blown films">Blasfolien</small></a>
-        <a href="beratex.html" data-brand="beratex">Textilwerke Todtnau<small data-en="BERATEX® fabrics">BERATEX® Gewebe</small></a>
-        <a href="texpak.html" data-brand="texpak" class="is-active" aria-current="page">TEXPAK<small data-en="EVA films &amp; bags">EVA-Folien &amp; -Beutel</small></a>
+                <a href="kunststoffwerk-lahr.html" data-brand="kwl">Kunststoffwerk Lahr</a>
+        <a href="beratex.html" data-brand="beratex">Textilwerke Todtnau</a>
+        <a href="texpak.html" data-brand="texpak" class="is-active" aria-current="page">TEXPAK</a>
       </nav>
 
       <div class="langswitch" role="group" aria-label="Sprache / Language">
@@ -88,6 +87,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Bildband: hier die Motive der Sparte einsetzen -->
+  <div class="strip">
+    <div class="imgph" role="img" aria-label="Platzhalter: EVA-Beutel"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>EVA-Beutel</b><small>2400 × 1000 px</small></span></div>
+    <div class="imgph" role="img" aria-label="Platzhalter: Dosierung / Abfüllung"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Dosierung / Abfüllung</b><small>2400 × 1000 px</small></span></div>
+    <div class="imgph" role="img" aria-label="Platzhalter: Kautschukmischung"><span class="imgph__inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-5 5-3-3-5 5"/></svg><b>Kautschukmischung</b><small>2400 × 1000 px</small></span></div>
+  </div>
 
   <!-- ══ UNTERNEHMEN ═══════════════════════════════════════════════ -->
   <section class="section" id="company">
@@ -299,9 +305,7 @@
             Nennen Sie uns Mischtemperatur, Füllmenge und Chargengröße – wir
             empfehlen Ihnen passenden Schmelzpunkt und Format.
           </p>
-        </div>
-        <div>
-          <div class="contact-card">
+          <div class="contact-card" style="margin-top:1.8rem">
             <h3>TEXPAK GmbH</h3>
             <p style="color:var(--slate-600);font-size:.94rem;margin:0" data-en="A company of the Bernauer Group. Enquiries are handled through the group's central contact.">
               Ein Unternehmen der Bernauer Group. Anfragen laufen über den
@@ -313,12 +317,120 @@
                 <a href="tel:+4976719117">+49 7671 9117 0</a>
               </li>
               <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="6"/><rect x="4" y="9" width="16" height="8" rx="2"/><rect x="7" y="15" width="10" height="6"/></svg></span>
+                <span>Fax +49 7671 9117 40</span>
+              </li>
+              <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
                 <a href="mailto:info@beratex.com">info@beratex.com</a>
               </li>
             </ul>
           </div>
         </div>
+
+        <form class="form" data-subject="Anfrage TEXPAK – EVA-Folien und -Beutel"
+              data-to="info@beratex.com" novalidate>
+          <div class="form__grid">
+            <p class="form__legend" data-en="Your details">Ihre Angaben</p>
+
+            <div class="field">
+              <label class="req" for="t-company" data-en="Company">Firma</label>
+              <input id="t-company" name="Firma" type="text" autocomplete="organization" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label class="req" for="t-name" data-en="Contact person">Ansprechpartner</label>
+              <input id="t-name" name="Ansprechpartner" type="text" autocomplete="name" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label class="req" for="t-mail" data-en="Email">E-Mail</label>
+              <input id="t-mail" name="E-Mail" type="email" autocomplete="email" required>
+              <p class="field__err" data-err></p>
+            </div>
+            <div class="field">
+              <label for="t-phone" data-en="Phone">Telefon</label>
+              <input id="t-phone" name="Telefon" type="tel" autocomplete="tel">
+            </div>
+
+            <p class="form__legend" data-en="Product &amp; process">Produkt &amp; Prozess</p>
+
+            <div class="field">
+              <label for="t-product" data-en="Product">Produkt</label>
+              <select id="t-product" name="Produkt">
+                <option data-en="EVA bags (low-melting)">EVA-Beutel (niederschmelzend)</option>
+                <option>PoLAflex</option>
+                <option data-en="EVA film">EVA-Folie</option>
+                <option data-en="Tubular film">Schlauchfolie</option>
+                <option value="" data-en="Not sure — please advise">Weiß ich nicht – bitte beraten</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="t-melt" data-en="DSC melting point">DSC-Schmelzpunkt</label>
+              <select id="t-melt" name="DSC-Schmelzpunkt">
+                <option value="" data-en="Not sure — please advise">Weiß ich nicht – bitte beraten</option>
+                <option>60 °C</option>
+                <option>70 °C (T70)</option>
+                <option>80 °C (T80)</option>
+                <option>90 °C</option>
+                <option>100 °C (T100)</option>
+                <option>104 °C</option>
+              </select>
+              <p class="field__hint" data-en="Available from 60 °C to 104 °C.">Verfügbar von 60 °C bis 104 °C.</p>
+            </div>
+            <div class="field">
+              <label for="t-mixtemp" data-en="Your mixing temperature (°C)">Ihre Mischtemperatur (°C)</label>
+              <input id="t-mixtemp" name="Mischtemperatur (°C)" type="text" inputmode="numeric"
+                     placeholder="z. B. 110" data-en-placeholder="e.g. 110">
+            </div>
+            <div class="field">
+              <label for="t-fill" data-en="Filling quantity per bag">Füllmenge je Beutel</label>
+              <input id="t-fill" name="Füllmenge je Beutel" type="text"
+                     placeholder="z. B. 2,5 kg" data-en-placeholder="e.g. 2.5 kg">
+            </div>
+            <div class="field">
+              <label for="t-batch" data-en="Batch size / annual requirement">Chargengröße / Jahresbedarf</label>
+              <input id="t-batch" name="Chargengröße / Jahresbedarf" type="text"
+                     placeholder="z. B. 50.000 Beutel/Jahr" data-en-placeholder="e.g. 50,000 bags per year">
+            </div>
+            <div class="field">
+              <label for="t-industry" data-en="Industry">Branche</label>
+              <select id="t-industry" name="Branche">
+                <option data-en="Tyre industry">Reifenindustrie</option>
+                <option data-en="Rubber &amp; elastomers">Gummi &amp; Kautschuk</option>
+                <option data-en="Chemicals">Chemie</option>
+                <option data-en="Pharmaceutical">Pharma</option>
+                <option data-en="Food">Lebensmittel</option>
+                <option data-en="Other">Sonstiges</option>
+              </select>
+            </div>
+
+            <div class="field field--wide">
+              <label class="req" for="t-msg" data-en="Your message">Ihre Nachricht</label>
+              <textarea id="t-msg" name="Nachricht" required
+                        placeholder="Welche Additive oder Mischungen sollen abgefüllt werden? Wie lange werden die Beutel zwischengelagert?"
+                        data-en-placeholder="Which additives or compounds will be filled? How long are the bags stored before use?"></textarea>
+              <p class="field__err" data-err></p>
+            </div>
+
+            <div class="consent">
+              <input id="t-consent" name="Einwilligung" type="checkbox" required>
+              <label for="t-consent" data-en-html="I agree that my details may be used to process my enquiry. See the <a href=&quot;datenschutz.html&quot;>privacy policy</a>.">
+                Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung
+                meiner Anfrage verwendet werden. Siehe
+                <a href="datenschutz.html">Datenschutzerklärung</a>.
+              </label>
+              <p class="field__err" data-err></p>
+            </div>
+
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit" data-en-html="Send enquiry <span class=&quot;arrow&quot;>→</span>">Anfrage senden <span class="arrow">→</span></button>
+            <p class="form__note" data-en="We usually reply within one working day.">Wir antworten in der Regel innerhalb eines Werktags.</p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -362,7 +474,7 @@
     <div class="footer__bottom">
       <span>© Bernauer Group · TEXPAK GmbH</span>
       <nav>
-        <a href="#" data-en="Imprint">Impressum</a><a href="#" data-en="Terms &amp; Conditions">AGB</a><a href="#" data-en="Privacy Policy">Datenschutzerklärung</a><a href="#">GTCT</a>
+        <a href="impressum.html" data-en="Imprint">Impressum</a><a href="agb.html" data-en="Terms &amp; Conditions">AGB</a><a href="datenschutz.html" data-en="Privacy Policy">Datenschutzerklärung</a>
       </nav>
     </div>
   </div>
